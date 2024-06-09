@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static  %}
+
+{% block content %}
+    <div id="carouselExampleInterval" class="carousel slide mt-2" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleInterval" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleInterval" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleInterval" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#carouselExampleInterval" data-bs-slide-to="3" aria-label="Slide 4"></button>
+        </div>
+        <div class="carousel-inner banner">
+            <div class="carousel-item active" data-bs-interval="5000">
+                <img src="{% static 'images/ban-1.jpg' %}" class="d-block w-100" alt="Slide 1">
+            </div>
+            <div class="carousel-item" data-bs-interval="5000">
+                <img src="{% static 'images/ban-2.jpg' %}" class="d-block w-100" alt="Slide 2">
+            </div>
+            <div class="carousel-item" data-bs-interval="5000">
+                <img src="{% static 'images/ban-4.jpg' %}" class="d-block w-100" alt="Slide 3">
+            </div>
+            <div class="carousel-item" data-bs-interval="5000">
+                <img src="{% static 'images/ban-5.jpg' %}" class="d-block w-100" alt="Slide 4">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+    <div class="container mb-5">
+        <div class="row">
+            <div class="col-12">
+                <h1 style="font-family: 'Copse', serif;">Trending Products</h1>
+            </div>
+            {% for item in product1 %}
+                <div class="col-md-4 col-lg-3">
+                    <a href="{% url 'product_details' item.category.name item.name %}">
+                        <div class="card my-3" style="height: 410px;">
+                            <img src="{{ item.product_image.url }}" style="height: 300px;" class="card-img-top" alt="Product Image">
+                            <div class="card-body">
+                                <h5 class="card-title" style="color: black;">{{ item.name }}</h5>
+                                <h4 class="card-text text-end" style="color: black;"><span class="badge text-bg-success">₹ {{ item.selling_price | stringformat:'d' }}</span></h4>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endblock %}
+
+    

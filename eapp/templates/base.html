@@ -1,0 +1,137 @@
+{% load static %}
+
+<html>
+<head>
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet"/>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <link href="{% static 'css/style.css' %}" rel="stylesheet"></link>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+
+    <title>E-Kart</title>
+    <style>
+        body{
+          background-color: #c5c9c6;
+          }
+        .banner{
+               height:300px;
+           }
+           a {
+            text-decoration: none;
+        }
+      
+   
+
+    </style>
+</head>
+<body>
+
+  
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container-fluid">
+          <a class="navbar-brand ms-5" href="{% url 'index' %}" style="font-family: 'Potta One', system-ui;">
+             <b> E-Kart </b>
+        </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <form class="d-flex" role="search">
+                <input class="form-control me-2 mt-3" style="width:800px;padding:5px;font-size:18px;height:50px" type="search" placeholder="Search for Products, Brands and More" aria-label="Search">
+               
+            </form>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto">
+                  <li class="nav-item ">
+                    <a class="nav-link active me-2"  aria-current="page" href="{% url 'index' %}"><i class="fa fa-home"></i> Home</a>
+                </li>
+
+                <li class="nav-item me-3 ">
+                  <a class="nav-link active" href="{% url 'product' %}"><i class="fa fa-cubes" aria-hidden="true"></i> Products</a>
+              </li>
+
+              <li class="nav-item me-3">
+                <a class="nav-link active" href="{% url 'cart' %}"><i class="fa fa-shopping-bag" aria-hidden="true"></i> Cart</a>
+            </li>
+                {% if request.user.is_authenticated %}
+                <li class="nav-item me-3">
+                  <a class="nav-link active" href="#"><i class="fa fa-user" aria-hidden="true"></i> {{request.user}}</a>
+              </li>
+             
+                    <li class="nav-item me-3">
+                        <a class="nav-link" href="{% url 'logout' %}"><button class="btn btn-primary rounded-pill" style="width:100px"  type="submit"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</button></a>
+                    </li>
+                    {% else %}
+                    <li class="nav-item me-3">
+                      <a class="nav-link" href="{% url 'login' %}"><button class="btn btn-success rounded-pill" style="width:100px"  type="submit"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</button></a>
+                  </li>
+                 
+                {% endif %}
+            
+  
+                </ul>
+               
+            </div>
+        </div>
+    </nav>
+
+
+
+    {% block content %}
+    <!-- Content from child templates will be placed here -->
+    {% endblock %}
+
+
+
+<footer class="bg-dark text-white">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3">
+                <h3>Contact Information</h3>
+                <p>Address: 231, VR Street, Chennai.<br>
+                   Phone: 9876540123<br>
+                   Email: <a href="mailto:info@yourcompany.com" class="text-white">ekart@gmail.com</a></p>
+            </div>
+            <div class="col-md-3">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#" class="text-white">Home</a></li>
+                    <li><a href="#" class="text-white">Products</a></li>
+                    <li><a href="#" class="text-white">Cart</a></li>
+                    <li><a href="#" class="text-white">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <h3>Social Media</h3>
+                <ul class="footer-links">
+                    <li><a href="#" class="text-white">Facebook</a></li>
+                    <li><a href="#" class="text-white">Twitter</a></li>
+                    <li><a href="#" class="text-white">Instagram</a></li>
+                    <li><a href="#" class="text-white">LinkedIn</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <h3>Legal Information</h3>
+                <ul class="footer-links">
+                    <li><a href="#" class="text-white">Terms of Service</a></li>
+                    <li><a href="#" class="text-white">Privacy Policy</a></li>
+                    <li><a href="#" class="text-white">Disclaimer</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        &copy;  [E-Kart]. All rights reserved.
+    </div>
+</footer>
+
+
+
+
+
+<!-- Bootstrap JS and any additional scripts -->
+<script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+
+</body>
+</html>

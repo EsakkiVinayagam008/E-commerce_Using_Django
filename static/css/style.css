@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Potta+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Copse&family=Tomorrow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Patua+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Vidaloka&display=swap');
+body{
+    font-family: "Nunito", sans-serif;
+    
+}
+
+a {
+    text-decoration: none;
+}
+.trndbox{
+    position:relative;
+}
+.trnd{
+    background-color:green;
+    color:white;
+    font-weight:bold;
+    display:inline;
+    border-radius:5px;
+    position:absolute;
+    top:5px;
+    text-align:center;
+    right:15px;
+    width:100px;
+    z-index:10;
+}
+
+
+       /* Custom styles for footer */
+       footer {
+        background-color: #333;
+        color: #fff;
+        padding: 40px 0;
+    }
+    .footer-links ul {
+        list-style-type: none;
+        padding-left: 0;
+    }
+    .footer-links ul li {
+        margin-bottom: 10px;
+    }
+    .footer-links ul li a {
+        color: #fff;
+        text-decoration: none;
+    }
+    .footer-links ul li a:hover {
+        text-decoration: underline;
+    }
